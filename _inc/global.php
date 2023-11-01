@@ -24,6 +24,12 @@ endif;
 DEFINE("LOGADO", $isLogged);
 
 
+/** Sistema de admin */
+if(isset($_GET['admin'])):
+    include("_admin/index.php");
+    die();
+endif;
+
 
 /** Sistema para a requisicao REST */
 if(isset($_GET['ajax'])):
@@ -33,7 +39,6 @@ if(isset($_GET['ajax'])):
     include("_ajax/{$pageNameAjax}.php");
 
     die();
-
 endif;
 
 
@@ -42,24 +47,12 @@ if(isset($_GET['page'])):
     $pageName = $_GET['page'];
 
     if(!file_exists("_pages/{$pageName}.php"))
-    $pageName = 404;
-    
+    $pageName = 404;    
     
     include("_pages/_parts/header.php");
     include("_pages/{$pageName}.php");
     include("_pages/_parts/footer.php");
 
-
 endif;
-
-
-
-/*
-$items = [
-    ["id" => 1, "name" => "test"],["id" => 1, "name" => "test"]
-        
-    ];
-
-echo json_encode($items);*/
 
 ?>

@@ -1,5 +1,4 @@
 <?php
-
 # VAPO - 19/10 #
 if(!isset($_GET['page']))
 $_GET['page'] = "home";
