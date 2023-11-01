@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 $stmt = $conn->prepare("SELECT * FROM produtos WHERE id = ?");
 $stmt->execute([$_GET['id']]);
@@ -142,3 +143,6 @@ $item = $stmt->fetch();
       </div>
     </section>
   </main>
+=======
+<!-- pagina detalhes do produto -->
+>>>>>>> b5ea8652d75495e3028d4329a7adce03771a7067
