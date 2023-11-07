@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="<?= _CONFIG['SITE_URL']; ?>/assets/style.css?<?= time(); ?>" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <!-- snackbar -->
+  <link rel="stylesheet" href="https://www.cssscript.com/demo/snackbar-toast-notification/css/js-snackbar.css?v=1.0.0">
+  <script src="https://www.cssscript.com/demo/snackbar-toast-notification/js/js-snackbar.js?v=1.0.0"></script>
 </head>
 <body>
   <header id="header" class="header">
