@@ -35,6 +35,8 @@ endif;
 if(isset($_GET['ajax'])):
     $pageNameAjax = $_GET['ajax'];
 
+    sleep(1);
+
     if(file_exists("_ajax/{$pageNameAjax}.php"))
     include("_ajax/{$pageNameAjax}.php");
 

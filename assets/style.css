@@ -2599,7 +2599,7 @@ Cart Area Media Query
   outline: 0;
 }
 
-.endereco input:read-only{
+.endereco input:read-only, .submit:disabled{
   opacity:0.6;
 }
 
