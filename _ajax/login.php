@@ -1,5 +1,5 @@
 <?php
-if(!isset($_POST['email']) || !isset($_POST['pass']))
+if(!isset($_POST['email']) || !isset($_POST['pass']) || LOGADO)
 die();
 function error($messsage){
     
@@ -22,6 +22,6 @@ error("Senha digitada está incorreta!");
 setcookie("hash", $user['hash'], time()+30*24*60*60, "/");
 
 $data = json_encode([
-    "result" => ["error" => false]
+    "result" => ["error" => false, "urlRedirect" => _CONFIG['SITE_URL']."/profile"]
 ]);die($data);
 ?>

@@ -1,22 +1,20 @@
 <?php
 $stmt = $conn->prepare("SELECT * FROM produtos WHERE id = ?");
 $stmt->execute([$_GET['id']]);
-$item = $stmt->fetch();
+
+if($item = $stmt->fetch()){
 ?>
 <main id="main">
     <div class="container">
-      <!-- Products Details -->
       <section class="section product-details__section">
         <div class="product-detail__container">
           <div class="product-detail__left">
             <div class="details__container--left">
               <div class="product__picture" id="product__picture">
-                <!-- <div class="rect" id="rect"></div> -->
                 <div class="picture__container">
                   <img src="<?= $item['imagem']; ?>" id="pic" />
                 </div>
               </div>
-              <div class="zoom" id="zoom"></div>
             </div>
           </div>
 
@@ -71,7 +69,7 @@ $item = $stmt->fetch();
       <section class="section related__products">
         <div class="title__container">
           <div class="section__title filter-btn active">
-            <span class=" dot"></span>
+            <span class="dot"></span>
             <h1 class="primary__title">Produtos Similares</h1>
           </div>
         </div>
@@ -84,7 +82,7 @@ $item = $stmt->fetch();
                     $stmt->execute();
                     foreach ($stmt->fetchAll() as $produto) { 
                     ?>
-                   <a href="<?= _CONFIG['SITE_URL']; ?>/produto?id=<?= $produto['id']; ?>"> <div class="product category__products">
+                   <a href="<?= _CONFIG['SITE_URL']; ?>/product?id=<?= $produto['id']; ?>"> <div class="product category__products">
                         <div class="product__header">
                             <img src="<?= $produto['imagem']; ?>">
                         </div>
@@ -137,3 +135,4 @@ $item = $stmt->fetch();
       </div>
     </section>
   </main>
+<?php } ?>

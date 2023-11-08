@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="<?= _CONFIG['SITE_URL']; ?>/assets/style.css?<?= time(); ?>" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="<?= _CONFIG['SITE_URL']; ?>/assets/scripts.js?<?= time(); ?>"></script>
 
   <!-- snackbar -->
   <link rel="stylesheet" href="<?= _CONFIG['SITE_URL']; ?>/assets/snack/js-snackbar.css?v=1.0.0">
@@ -27,18 +28,18 @@
           
           <div class="nav__logo">
             <a href="<?= _CONFIG['SITE_URL']; ?>/" class="scroll-link">
-              VAPO<?= $user['nome']; ?>
+              VAPO
             </a>
           </div>
 
           <div class="nav__icons">
-            <a href="<?= _CONFIG['SITE_URL']; ?>/login" class="icon__item" id="login-btn">
+            <a href="<?= _CONFIG['SITE_URL']; ?>/profile" class="icon__item">
             <i class="fa-solid fa-user"></i>
             </a>
 
             <a href="#" class="icon__item" id="cart-btn">
             <i class="fa-solid fa-cart-shopping"></i>
-              <span id="cart__total">30</span>
+              <span id="cart__total">0</span>
             </a>
           </div>
         </nav>

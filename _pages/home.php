@@ -18,7 +18,7 @@
                             <div class="product__price">
                                 <h4>R$<?= $produto['preco']; ?></h4>
                             </div>
-                            <a href="<?= _CONFIG['SITE_URL']; ?>/produto?id=<?= $produto['id']; ?>"><button type="submit" class="product__btn">Comprar</button></a>
+                            <a href="<?= _CONFIG['SITE_URL']; ?>/product?id=<?= $produto['id']; ?>"><button type="submit" class="product__btn">Comprar</button></a>
                         </div>
                     </div>
                     <?php } ?>

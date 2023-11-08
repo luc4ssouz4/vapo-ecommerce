@@ -9,7 +9,7 @@ if(
 !isset($_POST['numero'])||
 !isset($_POST['uf'])||
 !isset($_POST['cidade'])||
-!isset($_POST['bairro'])
+!isset($_POST['bairro']) || LOGADO
 )die();
 
 function error($messsage){
@@ -55,6 +55,6 @@ $stmt->execute([$_POST['username'], $_POST['email'], $senha, "{$_POST['rua']} - 
 setcookie("hash", $hash, time()+30*24*60*60, "/");
 
 $data = json_encode([
-    "result" => ["error" => false]
+    "result" => ["error" => false, "urlRedirect" => _CONFIG['SITE_URL']."/profile"]
 ]);die($data);
 ?>

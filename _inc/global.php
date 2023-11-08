@@ -11,18 +11,15 @@ try {
 
 /** Sistema de login */
 $isLogged = false;
-if(isset($_COOKIE['hash'])):
+if(isset($_COOKIE['hash'])):   
     
     $stmt = $conn->prepare("SELECT * FROM users WHERE hash = ?");
     $stmt->execute([$_COOKIE['hash']]);
-    $user = $stmt->fetch();
-    
-    if($user)
+    if($user = $stmt->fetch())
     $isLogged = true;
 
 endif;
 DEFINE("LOGADO", $isLogged);
-
 
 /** Sistema de admin */
 if(isset($_GET['admin'])):
