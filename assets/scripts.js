@@ -17,7 +17,7 @@ $(document).on("submit", '#login form', function (e) {
                 position: "tr",
                 icon: "!"
             });
-            else window.location.href = data.result.urlRedirect;
+            else location.reload(true);
         }
     });
     
@@ -42,7 +42,7 @@ $(document).on("submit", '#register form', function (e) {
                 position: "tr",
                 icon: "!"
             });
-            else window.location.href = data.result.urlRedirect;          
+            else location.reload(true);       
         }
 });
 });

@@ -27,6 +27,16 @@ if(isset($_GET['admin'])):
     die();
 endif;
 
+// CART
+$cartCount = 0;
+$cart = [];
+if(isset($_COOKIE['cart']))
+$cart = json_decode($_COOKIE['cart']);
+
+foreach($cart as $k => $value){
+    $cartCount += $cart[$k]->qnt;   
+}
+
 
 /** Sistema para a requisicao REST */
 if(isset($_GET['ajax'])):
@@ -44,6 +54,9 @@ endif;
 /** Sistema de pagina */
 if(isset($_GET['page'])):
     $pageName = $_GET['page'];
+
+    if(!LOGADO && in_array($pageName, ["checkout"]))
+    $pageName = "profile"; 
 
     if(!file_exists("_pages/{$pageName}.php"))
     $pageName = 404;    

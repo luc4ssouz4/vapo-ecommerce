@@ -4,6 +4,33 @@ $stmt->execute([$_GET['id']]);
 
 if($item = $stmt->fetch()){
 ?>
+<script>
+var price = "<?= $item['preco']; ?>";
+
+function addQnt(){
+  var qnt = parseInt($(".counter-btn").val()) + parseInt(1);
+  if(qnt != 11)
+  $(".counter-btn").val(qnt),
+  attVal();
+
+}
+function rmQnt(){
+  var qnt = parseInt($(".counter-btn").val()) - parseInt(1);
+  if(qnt != 0)
+  $(".counter-btn").val(qnt),
+  attVal();
+  
+}
+
+function attVal(){
+  var subTotal = parseInt($(".counter-btn").val()) * price;
+  $(".new__price.subTotal").text(`R$${subTotal.toFixed(2)}`);
+}
+
+
+</script>
+
+
 <main id="main">
     <div class="container">
       <section class="section product-details__section">
@@ -22,7 +49,7 @@ if($item = $stmt->fetch()){
             <div class="product-detail__content">
               <h3><?= $item['titulo']; ?></h3>
               <div class="price">
-                <span class="new__price">R$<?= $item['preco']; ?></span>
+                <span class="new__price">R$<?= number_format($item['preco'],2,",","."); ?></span>
               </div>
               <p>
               <?= $item['descricao']; ?>
@@ -33,12 +60,14 @@ if($item = $stmt->fetch()){
                   <li>
                     <div class="input-counter">
                       <span>Quantidade:</span>
-                      <div>
-                        <span class="minus-btn">
+                      <div style="margin-left: 10px;">
+                        <span class="minus-btn" onclick="rmQnt()">
                         <i class="fa-solid fa-minus"></i>
                         </span>
-                        <input type="text" min="1" value="1" max="10" class="counter-btn">
-                        <span class="plus-btn">
+                        <form method="POST" action="<?= _CONFIG['SITE_URL']?>/cart">
+                        <input type="text" name="quant" min="1" value="1" max="10" class="counter-btn" readonly>
+                        <input type="hidden" name="id" value="<?= $item['id']; ?>">
+                        <span class="plus-btn" onclick="addQnt()">
                         <i class="fa-solid fa-plus"></i>
                         </span>
                       </div>
@@ -47,17 +76,15 @@ if($item = $stmt->fetch()){
 
                   <li>
                     <span>Subtotal:</span>
-                    <a href="#" class="new__price">R$<?= $item['preco']; ?></a>
-                  </li>  
-                  
+                    <a href="#" class="new__price subTotal">R$<?= number_format($item['preco'],2,",","."); ?></a>
+                  </li>                    
 
             <div class="product-details__btn">
-              <a class="add" href="#">
-                <span>
-                <i class="fa-solid fa-cart-plus"></i>
-                </span>
-                ADD AO CARRINHO</a>
-            </div>                
+              <a class="add" href="#" onclick='$("form").submit();'>
+                <span><i class="fa-solid fa-cart-plus"></i></span>
+                ADD AO CARRINHO
+              </a></form>
+              </div>                
                 </ul>
               </div>
             </div>
@@ -88,7 +115,7 @@ if($item = $stmt->fetch()){
                         </div>
                         <div class="product__footer">
                             <h3><?= $produto['titulo']; ?></h3>
-                            <div class="product__price"><h4>$<?= $produto['preco']; ?></h4></div>
+                            <div class="product__price"><h4>R$<?= number_format($item['preco'],2,",","."); ?></h4></div>
                         </div>
                     </div></a>
                     <?php } ?>

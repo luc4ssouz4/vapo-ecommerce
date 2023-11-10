@@ -37,9 +37,9 @@
             <i class="fa-solid fa-user"></i>
             </a>
 
-            <a href="#" class="icon__item" id="cart-btn">
+            <a href="<?= _CONFIG['SITE_URL']; ?>/cart" class="icon__item" id="cart-btn">
             <i class="fa-solid fa-cart-shopping"></i>
-              <span id="cart__total">0</span>
+              <span id="cart__total"><?= $cartCount ?></span>
             </a>
           </div>
         </nav>

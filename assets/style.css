@@ -198,13 +198,16 @@ Navigation
 
 .nav__icons #cart__total {
   font-size: 1rem;
-  position: absolute;
-  top: -2px;
-  right: -9px;
-  background-color: var(--orange);
-  padding: 3px;
-  border-radius: 100%;
-  color: var(--primaryColor);
+    position: absolute;
+    top: -2px;
+    right: -9px;
+    background-color: var(--orange);
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 100%;
+    color: var(--primaryColor);
+    text-align: center;
 }
 
 .page__title-area {
@@ -2520,7 +2523,7 @@ Cart Area Media Query
 @media only screen and (max-width: 1200px) {
   .minus-btn,
   .plus-btn {
-    padding: 0.6rem 0.8rem;
+    padding: 10px;
     margin-right: 0;
   }
 
