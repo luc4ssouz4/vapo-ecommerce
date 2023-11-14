@@ -2,19 +2,17 @@
 if(isset($_POST['id'])):
 //echo($cart[0]->id);
 $add = true;
-
 foreach($cart as $k => $value){
         
-    if($cart[$k]->id == $_POST['id']){
+    if($value->id == $_POST['id']){
        
-        $cart[$k]->qnt+= $_POST['quant'];
+        $value->qnt+= $_POST['quant'];
         // MAX ITEM CART
-        if($cart[$k]->qnt > 10)
-        $cart[$k]->qnt = 10;
+        if($value->qnt > 10)
+        $value->qnt = 10;
 
         $add = false;
    }
-
 }
 
 if($add)
@@ -59,6 +57,24 @@ $.getJSON({
 
 }
 
+function delItemCart(id){
+    $(".cart__totals").css("opacity", "0.3");
+    $("#itemCart_"+id).css("opacity", "0.3");
+
+    $.getJSON({
+        url: "/ajax/update_cart_remove",
+        method: "POST",
+        data: { id:id},
+        success: function (data) {
+            $("#itemCart_"+id).remove();
+            $("#cart__total").html(`${data.result.countCart}`);
+            $(".new__price.update_total").html(`R$${data.result.subTotal.toFixed(2)}`);
+            $(".cart__totals").css("opacity", "1");
+        }
+});    
+    
+}
+
 function checkout(){
     $.getJSON({
         url: "/ajax/checkout_cart",
@@ -95,7 +111,7 @@ function checkout(){
 
                                     $subTotal += $item['preco'] * $cart->qnt;
                                     ?>
-                                    <tr>
+                                    <tr id="itemCart_<?= $item['id']; ?>">
                                         <td class="product__thumbnail">
                                             <a href="#">
                                                 <img src="<?= $item['imagem']; ?>" alt="">
@@ -126,10 +142,8 @@ function checkout(){
                                             <div class="price">
                                                 <span class="new__price" id="itemPrice_<?= $item['id']; ?>">R$<?= number_format($item['preco'] * $cart->qnt,2,".","."); ?></span>
                                             </div>
-                                            <a href="#" class="remove__cart-item">
-                                                <svg>
-                                                    <use xlink:href="./images/sprite.svg#icon-trash"></use>
-                                                </svg>
+                                            <a href="#" class="remove__cart-item" onclick="delItemCart(<?= $item['id']; ?>)">
+                                            <i class="fa-solid fa-trash"></i>
                                             </a>
                                         </td>
                                     </tr>

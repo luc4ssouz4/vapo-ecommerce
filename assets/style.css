@@ -2249,7 +2249,6 @@ Cart Area
 
 .cart__table .table td {
   vertical-align: middle;
-  padding: 1.8rem 0;
   white-space: nowrap;
   border-bottom: 1px solid var(--primaryColor);
 }

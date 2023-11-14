@@ -32,11 +32,12 @@ $cartCount = 0;
 $cart = [];
 if(isset($_COOKIE['cart']))
 $cart = json_decode($_COOKIE['cart']);
+else
+setcookie('cart', json_encode($cart), time()+999*999, "/");
 
 foreach($cart as $k => $value){
-    $cartCount += $cart[$k]->qnt;   
+    $cartCount += $value->qnt;   
 }
-
 
 /** Sistema para a requisicao REST */
 if(isset($_GET['ajax'])):
