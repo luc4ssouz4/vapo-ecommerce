@@ -22,9 +22,11 @@ endif;
 DEFINE("LOGADO", $isLogged);
 
 /** Sistema de admin */
-if(isset($_GET['admin'])):
+if(isset($_GET['admin']) && LOGADO):
+    
+    if($user['rank'] > 1)
     include("_admin/index.php");
-    die();
+
 endif;
 
 // CART

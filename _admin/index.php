@@ -8,6 +8,6 @@ if(isset($_GET['admin'])):
     include("_admin/_pages/{$pageName}.php");       
     include("_admin/_pages/_parts/footer.php");
 
-
+    die();
 endif;
 ?>

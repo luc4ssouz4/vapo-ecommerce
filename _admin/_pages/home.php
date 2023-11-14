@@ -17,7 +17,7 @@
                             <th>ID</th>
                             <th>Data</th>
                             <th>Update</th>
-                            <th>Usuario</th>
+                            <th>Cliente</th>
                             <th>Valor</th>
                             <th>Status</th>
                         </tr>
@@ -28,14 +28,18 @@
                         $stmt = $conn->prepare("SELECT * FROM compras");
                         $stmt->execute();
                         foreach ($stmt->fetchAll() as $compra) {
+
+                        $stmt = $conn->prepare("SELECT nome FROM users WHERE id = ?");
+                        $stmt->execute([$compra['user_id']]);
+                        $user = $stmt->fetch();
                         ?>
 
                             <tr>
                                 <td><?= $compra['id']; ?></td>
-                                <td><?= $compra['data']; ?></td>
+                                <td><?= $today = date('d/m/Y - H:i:s', $compra['data']);  ?></td>
                                 <td><?= $compra['data_update']; ?></td>
-                                <td><?= $compra['user_id']; ?></td>
-                                <td><?= $compra['valor']; ?></td>
+                                <td><?= $user['nome']; ?></td>
+                                <td>R$<?= $compra['valor']; ?></td>
                                 <td><button type="button" class="btn btn-warning">Pendente</button></td>
                             </tr>
 
