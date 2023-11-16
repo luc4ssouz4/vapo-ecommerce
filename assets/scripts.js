@@ -47,6 +47,42 @@ $(document).on("submit", '#register form', function (e) {
 });
 });
 
+//promos
+
+$(document).on("submit", '#newsletter', function (e) {
+    e.preventDefault();
+    $("#newsletter .newsletter__link").attr("disabled", "disabled").val("Carregando...");
+    
+    $.getJSON({
+        url: "/ajax/newsletter",
+        method: "POST",
+        data: $(this).serialize(),
+        success: function (data) {
+
+            $("#newsletter .newsletter__link").removeAttr("disabled").val("Receber");      
+            if(data.result.error)
+            SnackBar({
+                message: data.result.message,
+                status: "error",
+                fixed: true,
+                position: "tr",
+                icon: "!"
+            });
+            else
+            $("#newsletter .newsletter__email").val(""),
+            SnackBar({
+                message: data.result.message,
+                fixed: true,
+                status: "success",
+                position: "tr",
+                icon: "!"
+            });
+        }
+    });
+    
+});
+
+
 
 function showLogin() {
     $("#register").css("display", "none");

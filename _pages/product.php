@@ -39,7 +39,7 @@ function attVal(){
             <div class="details__container--left">
               <div class="product__picture" id="product__picture">
                 <div class="picture__container">
-                  <img src="<?= $item['imagem']; ?>" id="pic" />
+                  <img src="<?= $item['imagem']; ?>" id="pic" style="height: 300px;" />
                 </div>
               </div>
             </div>

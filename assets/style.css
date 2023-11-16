@@ -1682,6 +1682,18 @@ NewsLetter
   background-color: #000;
 }
 
+.newsletter__link,
+.newsletter__link {
+  display: inline-block;
+  padding: 1.4rem 3rem;
+  margin-left: -0.5rem;
+  background-color: var(--black);
+  color: var(--white);
+  transition: 0.3s;
+  border: 0;
+}
+
+
 /*
 ======================
 Newsletter Media Query
