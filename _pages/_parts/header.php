@@ -41,6 +41,14 @@
             <i class="fa-solid fa-cart-shopping"></i>
               <span id="cart__total"><?= $cartCount ?></span>
             </a>
+
+            <?php if(LOGADO && $user['rank'] > 1) { ?>
+            <a target="adm" href="<?= _CONFIG['SITE_URL']; ?>/admin/home" class="icon__item">
+            <i class="fa fa-cogs" aria-hidden="true"></i>
+            </a>
+            <?php } ?>
+
+
           </div>
         </nav>
       </div>

@@ -50,7 +50,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Autenticado em:</div>
-                        Lucas
+                        <?= $user['nome']; ?>
                     </div>
                 </nav>
             </div>

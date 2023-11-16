@@ -46,10 +46,8 @@ $MESSAGE = '<div class="alert alert-success" role="alert">Produto adicionado com
                     <div class="col-md-12 mb-4">
                         <label for="validationCustom01" class="form-label">Descrição</label>
                         <textarea name="desc" class="form-control" rows="3"></textarea>             
-                    </div>     
+                    </div> 
                     
-
-
                     <div class="col-12">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="check">

@@ -39,7 +39,7 @@
                                 <td><?= $today = date('d/m/Y - H:i:s', $compra['data']);  ?></td>
                                 <td><?= $compra['data_update']; ?></td>
                                 <td><?= $user['nome']; ?></td>
-                                <td>R$<?= $compra['valor']; ?></td>
+                                <td>R$<?= number_format($compra['valor'],2,".","."); ?></td>
                                 <td><button type="button" class="btn btn-warning">Pendente</button></td>
                             </tr>
 
