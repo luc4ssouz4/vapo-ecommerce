@@ -1682,6 +1682,18 @@ NewsLetter
   background-color: #000;
 }
 
+.newsletter__link,
+.newsletter__link {
+  display: inline-block;
+  padding: 1.4rem 3rem;
+  margin-left: -0.5rem;
+  background-color: var(--black);
+  color: var(--white);
+  transition: 0.3s;
+  border: 0;
+}
+
+
 /*
 ======================
 Newsletter Media Query
@@ -2621,4 +2633,90 @@ Cart Area Media Query
 
 #register{
   display: none;
+}
+
+
+.profile{
+  display: flex;
+}
+.profile .boxzinha{
+  display: flex;
+  width: 50%;
+  margin-right: 5px;
+  background: var(--primaryColor);
+  padding: 35px 0px;
+  text-align: center;
+  flex-direction: column;
+  color: #555555;
+}
+.profile .boxzinha .user-info img{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: rgb(45 45 45) 0 0 20px 3px;
+}
+
+.profile .boxzinha .user-info .nome{
+  margin-top: 12px;
+  font-family: 'Archivo';
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.profile .boxzinha .form{
+  margin: 35px 35px 0px;
+  font-family: 'Archivo';
+}
+
+.profile .boxzinha .form.right{
+  margin: 0px 30px 0px;
+}
+
+.profile .boxzinha .form .title{
+  text-align: justify;
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+.profile .boxzinha .form span.label{
+  float: left;
+  margin: 3px 0px;
+  font-size: 15px;
+}
+
+.profile .boxzinha .form .form-input{
+  width: 100%;
+  font-size: 1.4rem;
+  padding: 1.6rem;
+  background-color: rgb(0 0 0 / 8%);
+  border: none;
+  text-indent: 1rem;
+  margin-bottom: 7px;
+}
+
+.profile .boxzinha .form .form-submit{
+  width: 40%;
+  float: inline-end;
+  font-size: 1.4rem;
+  padding: 1.6rem;
+  border: none;
+  text-indent: 1rem;
+  margin-bottom: 7px;
+  background-color: #000000d6;
+  margin-top: 15px;
+  color: #fff;
+}
+
+.profile .boxzinha .form .form-group{
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile .boxzinha .logout{
+  position: absolute;
+  margin-left: 20px;
+  margin-top: -20px;
+  background: #dedede;
+  padding: 7px;
+  border-radius: 50%;
 }

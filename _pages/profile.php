@@ -58,7 +58,113 @@ if(!LOGADO){
 </section>
 </main>
 <?php }else{ ?>
+<script>
+function logOut(){
+    document.cookie = "hash=; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+    location.reload(true);
+}
+</script>
+<main id="main">
+<section class="section newsletter" id="contact">
+<div class="container">
 
-Logado em: <?= $user['nome']; ?>
+<div class="profile">
+<div class="boxzinha">
+
+<div class="logout" onclick="logOut()">
+    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+</div>
+
+<div class="user-info">
+<img src="https://midias.correiobraziliense.com.br/_midias/jpg/2021/07/20/ronaldinho-6767211.jpg">
+<div class="nome"><?= explode(" ", $user['nome'])[0]; ?></div>
+</div>
+
+
+<div class="form">
+
+<div class="title">Informações Pessoais</div>
+
+<span class="label">Nome</span>
+<input class="form-input" type="text" value="<?= $user['nome']; ?>">
+
+<span class="label">Email</span>
+<input class="form-input" type="text" value="<?= $user['email']; ?>">
+
+<span class="label">CPF</span>
+<input class="form-input" type="text" value="<?= $user['cpf']; ?>">
+
+
+<input class="form-submit" type="submit" value="Editar">
+</div>
+    
+</div>
+
+<div class="boxzinha">
+
+
+<div class="form right">
+<div class="title">Informações de contato</div>
+
+
+<div class="form-group">
+    
+<div style="width: 85%;margin-right: 5px;">    
+<span class="label">Rua</span>
+<input class="form-input" type="text" value="<?= $user['end_rua']; ?>">
+</div>
+    
+<div style="width: 15%;margin-right: 5px;">    
+<span class="label">Nº</span>
+<input class="form-input" type="text" value="<?= $user['end_numero']; ?>">
+</div></div>
+    
+
+<div class="form-group">
+    
+<div style="width: 30%;margin-right: 5px;">    
+<span class="label">Estado</span>
+<input class="form-input" type="text" value="<?= $user['end_estado']; ?>">
+</div>
+
+<div style="width: 70%;margin-right: 5px;">    
+<span class="label">Cidade</span>
+<input class="form-input" type="text" value="<?= $user['end_cidade']; ?>">
+</div>
+    
+</div>
+
+<div class="form-group">
+    
+<div style="width: 70%;margin-right: 5px;">    
+<span class="label">Bairro</span>
+<input class="form-input" type="text" value="<?= $user['end_bairro']; ?>">
+</div>
+
+<div style="width: 30%;margin-right: 5px;">    
+<span class="label">CEP</span>
+<input class="form-input" type="text" value="<?= $user['end_cep']; ?>">
+</div>
+    
+</div>
+
+<span class="label">Telefone</span>
+<input class="form-input" type="text" value="<?= $user['telefone']; ?>">
+    
+
+<input class="form-submit" type="submit" value="Editar">
+
+
+</div><div>
+
+
+</div>
+</div>
+    
+</div></div>
+    
+</div>
+</section>
+</main>
 
 <?php } ?>

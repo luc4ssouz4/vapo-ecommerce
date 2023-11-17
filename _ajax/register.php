@@ -48,8 +48,8 @@ $hash = md5($_POST['email'] . (time() * 2 + rand(0,90)) . $_POST['cepzin']);
 // ENCRIPTANDO SENHA
 $senha = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
-$stmt = $conn->prepare("INSERT INTO users (`nome`, `email`, `senha`, `end_rua`, `end_estado`, `end_cidade`, `end_bairro`, `end_cep`, `hash`) VALUES (?,?,?,?,?,?,?,?,?)");
-$stmt->execute([$_POST['username'], $_POST['email'], $senha, "{$_POST['rua']} - {$_POST['numero']}", $_POST['uf'], $_POST['cidade'], $_POST['bairro'], $_POST['cepzin'], $hash]);
+$stmt = $conn->prepare("INSERT INTO users (`nome`, `email`, `senha`, `end_rua`, `end_numero`, `end_estado`, `end_cidade`, `end_bairro`, `end_cep`, `hash`) VALUES (?,?,?,?,?,?,?,?,?,?)");
+$stmt->execute([$_POST['username'], $_POST['email'], $senha, $_POST['rua'], $_POST['numero'], $_POST['uf'], $_POST['cidade'], $_POST['bairro'], $_POST['cepzin'], $hash]);
 
 
 setcookie("hash", $hash, time()+30*24*60*60, "/");

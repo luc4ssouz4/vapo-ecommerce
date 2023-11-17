@@ -46,6 +46,11 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Usuarios
                             </a>
+
+                            <a class="nav-link" href="<?= _CONFIG['SITE_URL_ADMIN']; ?>/emails">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Emails
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

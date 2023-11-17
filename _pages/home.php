@@ -25,7 +25,8 @@
                 </div>
             </div>
         </section>
-    </div>
+    </div>   
+    
     <section class="section newsletter" id="contact">
         <div class="container">
             <div class="newsletter__content">
@@ -33,9 +34,9 @@
                     <h3>RECEBA PROMOÇÕES</h3>
                     <p>Deixe seu email aqui para receber promoções futuras</p>
                 </div>
-                <form action="#">
-                    <input type="email" placeholder="Digite seu email" class="newsletter__email">
-                    <a class="newsletter__link" href="#">Receber</a>
+                <form method="POST" id="newsletter">
+                    <input name="email" type="text" placeholder="Digite seu email" class="newsletter__email">
+                    <input class="newsletter__link" value="Receber" type="submit">
                 </form>
             </div>
         </div>
