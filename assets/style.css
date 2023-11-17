@@ -2650,10 +2650,10 @@ Cart Area Media Query
   color: #555555;
 }
 .profile .boxzinha .user-info img{
-  width: 120px;
-  height: 120px;
+  width: 135px;
+  height: 135px;
   border-radius: 50%;
-  box-shadow: rgb(45 45 45) 0 0 20px 3px;
+  border: #dedede solid 11px;
 }
 
 .profile .boxzinha .user-info .nome{
@@ -2705,6 +2705,10 @@ Cart Area Media Query
   background-color: #000000d6;
   margin-top: 15px;
   color: #fff;
+}
+
+.profile .boxzinha .form .form-submit:disabled{
+  opacity: 0.3;
 }
 
 .profile .boxzinha .form .form-group{

@@ -58,14 +58,9 @@ if(!LOGADO){
 </section>
 </main>
 <?php }else{ ?>
-<script>
-function logOut(){
-    document.cookie = "hash=; expires=Thu, 18 Dec 2013 12:00:00 UTC";
-    location.reload(true);
-}
-</script>
+
 <main id="main">
-<section class="section newsletter" id="contact">
+<section class="section">
 <div class="container">
 
 <div class="profile">
@@ -81,29 +76,29 @@ function logOut(){
 </div>
 
 
-<div class="form">
+<form class="form" id="pessoal">
 
 <div class="title">Informações Pessoais</div>
 
 <span class="label">Nome</span>
-<input class="form-input" type="text" value="<?= $user['nome']; ?>">
+<input name="nome" class="form-input" type="text" value="<?= $user['nome']; ?>">
 
 <span class="label">Email</span>
-<input class="form-input" type="text" value="<?= $user['email']; ?>">
+<input name="email" class="form-input" type="text" value="<?= $user['email']; ?>">
 
 <span class="label">CPF</span>
-<input class="form-input" type="text" value="<?= $user['cpf']; ?>">
+<input name="cpf" class="form-input" type="text" value="<?= $user['cpf']; ?>">
 
 
 <input class="form-submit" type="submit" value="Editar">
-</div>
+</form>
     
 </div>
 
 <div class="boxzinha">
 
 
-<div class="form right">
+<form class="form right" id="contato">
 <div class="title">Informações de contato</div>
 
 
@@ -111,12 +106,12 @@ function logOut(){
     
 <div style="width: 85%;margin-right: 5px;">    
 <span class="label">Rua</span>
-<input class="form-input" type="text" value="<?= $user['end_rua']; ?>">
+<input class="form-input" name="rua" type="text" value="<?= $user['end_rua']; ?>">
 </div>
     
 <div style="width: 15%;margin-right: 5px;">    
 <span class="label">Nº</span>
-<input class="form-input" type="text" value="<?= $user['end_numero']; ?>">
+<input class="form-input" name="numero" type="text" value="<?= $user['end_numero']; ?>">
 </div></div>
     
 
@@ -124,12 +119,12 @@ function logOut(){
     
 <div style="width: 30%;margin-right: 5px;">    
 <span class="label">Estado</span>
-<input class="form-input" type="text" value="<?= $user['end_estado']; ?>">
+<input class="form-input" name="uf" type="text" value="<?= $user['end_estado']; ?>">
 </div>
 
 <div style="width: 70%;margin-right: 5px;">    
 <span class="label">Cidade</span>
-<input class="form-input" type="text" value="<?= $user['end_cidade']; ?>">
+<input class="form-input" name="cidade" type="text" value="<?= $user['end_cidade']; ?>">
 </div>
     
 </div>
@@ -138,24 +133,24 @@ function logOut(){
     
 <div style="width: 70%;margin-right: 5px;">    
 <span class="label">Bairro</span>
-<input class="form-input" type="text" value="<?= $user['end_bairro']; ?>">
+<input class="form-input" name="bairro" type="text" value="<?= $user['end_bairro']; ?>">
 </div>
 
 <div style="width: 30%;margin-right: 5px;">    
 <span class="label">CEP</span>
-<input class="form-input" type="text" value="<?= $user['end_cep']; ?>">
+<input class="form-input" name="cep" type="text" value="<?= $user['end_cep']; ?>">
 </div>
     
 </div>
 
 <span class="label">Telefone</span>
-<input class="form-input" type="text" value="<?= $user['telefone']; ?>">
+<input class="form-input" name="telefone" type="text" value="<?= $user['telefone']; ?>">
     
 
 <input class="form-submit" type="submit" value="Editar">
 
 
-</div><div>
+</form><div>
 
 
 </div>
