@@ -156,7 +156,35 @@ if(!LOGADO){
 </div>
 </div>
     
-</div></div>
+</div>
+
+<div style="margin-top: 14px;">
+<div style="background-color: #f1f1f1;padding: 40px;">
+<div style="font-size: 18px;">Compras Realizadas</div>
+
+<?php 
+$stmt = $conn->prepare("SELECT * FROM compras WHERE user_id = ?");
+$stmt->execute([$user['id']]);
+foreach ($stmt->fetchAll() as $compra) {
+?>
+<div style="display: flex;margin-top: 11px;">
+<a href="<?= _CONFIG['SITE_URL']; ?>/compra?id=<?= $compra['id']; ?>">
+<div style="margin-right: 10px;"><?= date('d/m/Y - H:i:s', $compra['data']);  ?> // R$<?= number_format($compra['valor'],2,".","."); ?></div>
+</a>
+</div>
+<?php } ?>
+
+
+</div>   
+</div>
+    
+</div>
+
+
+</div>
+
+
+
     
 </div>
 </section>

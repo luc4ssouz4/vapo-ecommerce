@@ -45,7 +45,7 @@ foreach($cart as $k => $value){
 if(isset($_GET['ajax'])):
     $pageNameAjax = $_GET['ajax'];
 
-    sleep(1);
+    sleep(0.5);
 
     if(file_exists("_ajax/{$pageNameAjax}.php"))
     include("_ajax/{$pageNameAjax}.php");

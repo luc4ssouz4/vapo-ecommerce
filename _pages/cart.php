@@ -25,61 +25,24 @@ die("<script>window.location.href = '"._CONFIG['SITE_URL']."/cart';</script>");
 endif;
 ?>
 <script>
-function updateCart(id, type, price){
-$(".cart__totals").css("opacity", "0.3");
-
-var qnt = $("#itemQnt_"+id).val();
-
-if(type == "+")
-if(qnt < 10)
-qnt = parseInt(qnt) + 1;
-
-if(type == "-")
-if(qnt > 1)
-qnt = parseInt(qnt) - 1;
-
-$("#itemQnt_"+id).val(qnt);
-
-var subTotal = (qnt * price);
-$("#itemPrice_"+id).html(`R$${subTotal.toFixed(2)}`);
-
-
-$.getJSON({
-        url: "/ajax/update_cart",
-        method: "POST",
-        data: { id:id, type:type, qnt:qnt},
-        success: function (data) {
-            $("#cart__total").html(`${data.result.countCart}`);
-            $(".new__price.update_total").html(`R$${data.result.subTotal.toFixed(2)}`);
-            $(".cart__totals").css("opacity", "1");
-        }
-});    
-
-}
-
-function delItemCart(id){
-    $(".cart__totals").css("opacity", "0.3");
-    $("#itemCart_"+id).css("opacity", "0.3");
-
-    $.getJSON({
-        url: "/ajax/update_cart_remove",
-        method: "POST",
-        data: { id:id},
-        success: function (data) {
-            $("#itemCart_"+id).remove();
-            $("#cart__total").html(`${data.result.countCart}`);
-            $(".new__price.update_total").html(`R$${data.result.subTotal.toFixed(2)}`);
-            $(".cart__totals").css("opacity", "1");
-        }
-});    
-    
-}
 
 function checkout(){
+    $(".cart__totals a").text("Aguarde...").css("opacity", "0.3").removeAttr("onclick");
     $.getJSON({
         url: "/ajax/checkout_cart",
         success: function (data) {
-            console.log(data);
+            $(".cart__totals a").text("Finalizar Compra").css("opacity", "1").attr("onclick", "checkout()");
+            
+            if(data.result.error)
+            SnackBar({
+                message: data.result.message,
+                status: "error",
+                fixed: true,
+                position: "tr",
+                icon: "!"
+            });
+            else
+            window.location.href = `${urlSite}/checkout?id=${data.result.id}`;
         }
 });   
 }

@@ -12,6 +12,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="<?= _CONFIG['SITE_URL']; ?>/assets/scripts.js?<?= time(); ?>"></script>
 
+  <script src="<?= _CONFIG['SITE_URL']; ?>/assets/qrcode/easy.qrcode.min.js?<?= time(); ?>"></script>
+
   <!-- snackbar -->
   <link rel="stylesheet" href="<?= _CONFIG['SITE_URL']; ?>/assets/snack/js-snackbar.css?v=1.0.0">
   <script src="<?= _CONFIG['SITE_URL']; ?>/assets/snack/js-snackbar.js?v=1.0.0"></script>

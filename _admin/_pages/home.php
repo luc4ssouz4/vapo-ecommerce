@@ -23,7 +23,6 @@
                         </tr>
                     </thead>
                     <tbody>
-
                         <?php
                         $stmt = $conn->prepare("SELECT * FROM compras");
                         $stmt->execute();
@@ -40,7 +39,15 @@
                                 <td><?= $compra['data_update']; ?></td>
                                 <td><?= $user['nome']; ?></td>
                                 <td>R$<?= number_format($compra['valor'],2,".","."); ?></td>
-                                <td><button type="button" class="btn btn-warning">Pendente</button></td>
+                                <?php 
+                                if($compra['status']){
+                                ?>
+                                <td><button type="button" class="btn btn-success">Pago</button></td>
+                                <?php }else{ ?>
+                                <td><button type="button" class="btn btn-warning">Pendente</button></td> 
+                                <?php } ?>
+
+                                
                             </tr>
 
                         <?php } ?>                    
