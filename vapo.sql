@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 16/11/2023 às 13:12
+-- Tempo de geração: 20/11/2023 às 23:43
 -- Versão do servidor: 10.4.27-MariaDB
 -- Versão do PHP: 8.2.0
 
@@ -30,7 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `compras` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `mp_id` int(11) NOT NULL,
+  `mp_id` varchar(255) NOT NULL,
+  `qr_code` text NOT NULL,
   `items_id` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`items_id`)),
   `valor` float NOT NULL,
   `status` int(11) NOT NULL,
@@ -88,27 +89,17 @@ CREATE TABLE `users` (
   `nome` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `senha` varchar(255) NOT NULL,
-  `cpf` int(50) NOT NULL,
+  `cpf` varchar(50) NOT NULL,
   `end_rua` varchar(100) NOT NULL,
+  `end_numero` int(5) NOT NULL,
   `end_estado` varchar(20) NOT NULL,
   `end_cidade` varchar(20) NOT NULL,
   `end_bairro` varchar(20) NOT NULL,
   `end_cep` int(10) NOT NULL,
-  `telefone` int(15) NOT NULL,
+  `telefone` varchar(100) NOT NULL,
   `rank` int(1) NOT NULL DEFAULT 1,
   `hash` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `users`
---
-
-INSERT INTO `users` (`id`, `nome`, `email`, `senha`, `cpf`, `end_rua`, `end_estado`, `end_cidade`, `end_bairro`, `end_cep`, `telefone`, `rank`, `hash`) VALUES
-(1, 'Iago ogai', 'test@hg.com', '$2y$10$CaIOTGjBxExXZiNWmkGO3OaqkGXpKPwNgb2KLv9WvV4Z7PuysZc6i', 0, '', '', '', '', 0, 0, 1, 'ogai'),
-(2, 'Lucas souza dos santos', 'luc4soficial@gmail.com', '$2y$10$hicBhRqcCT.Za6F9YHt7zeraGCzde5Mfi6FDt5Tytj3sDHSr97B96', 0, 'Rua Almirante Tamandaré - 999', 'PB', 'Bayeux', 'Imaculada', 58111110, 0, 2, 'a51855bc9385086eb70e45871f3c6b44'),
-(3, 'test', 'test@hjghj.com', '$2y$10$76xYPDeOP6oHjXWIrjbnfeymvn6xzBMRkIFha.Bbq6CLbOigIk3VS', 0, 'Rua Flor da Serra - 58', 'SP', 'Guarulhos', 'Vila Carmela I', 7178360, 0, 1, '9246da2f1d198a8c5fafebdc628a063f'),
-(4, 'test', 'dfsdf@ghffg.com', '$2y$10$/8dkCVjvHDTpkRKOAAYj9ev27PZuAYUcxRxed4LEE6VV.pm0aD9Ye', 0, 'Rua Almirante Tamandaré - 58', 'PB', 'Bayeux', 'Imaculada', 58111110, 0, 1, '59d220ad5ce793fe68c47b0314aaf9cb'),
-(5, 'Igor da silva de brito', 'seila@g.com', '$2y$10$BCPHQ7UZueVNax9GAxLi9.uVwoYgoq65nW.aoy4DsZSQMi2nfrayK', 0, 'Rua Almirante Tamandaré - 999', 'PB', 'Bayeux', 'Imaculada', 58111110, 0, 1, '4200db290c4426857a5a9ee35cb19964');
 
 --
 -- Índices para tabelas despejadas
@@ -165,7 +156,7 @@ ALTER TABLE `produtos`
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

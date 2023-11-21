@@ -1,15 +1,17 @@
 <?php
  $stmt = $conn->prepare("SELECT * FROM compras WHERE id = ?");
  $stmt->execute([$_GET['id']]); 
+ $compra = $stmt->fetch();
  
- if(!empty($compra = $stmt->fetch()) &&  $compra['user_id'] == $user['id'] && $compra['status'] == 0){
+ if(!empty($compra) && $compra['user_id'] == $user['id'] && !$compra['status']){
  
  $tempo = 86400 - (time() - $compra['data']);
  $vencido = false;
 
- if($tempo < 1)
+ if($tempo < 1){
+ header('Location: /compra?id='.$compra['id']);
  die();
-
+ }
 
 ?>
 <script>
@@ -196,19 +198,14 @@
 <div class="descricao">Seu pagamento foi recebido e nossa equipe estará cuidando do seu pedido.</div>
 <img src="https://www.freeiconspng.com/uploads/checkmark-png-5.png" style="width: 150px;">    
 <div style="margin-top: 80px;display: flex;justify-content: center;">
-<a href="#"><div class="button">Continuar</div></a>
+<a href="<?= _CONFIG['SITE_URL']; ?>/compra?id=<?= $compra['id']; ?>"><div class="button">Continuar</div></a>
 </div>
 </div>
 
 <div class="resumo">
-
-
 <div class="titulo">Resumo da compra</div>
-
 <div class="infos">
-
 <div class="grid">
-
 <div class="titulo-grid">Produtos</div>
 <?php
 foreach($cart as $k => $value){
@@ -228,16 +225,6 @@ $item = $stmt->fetch();
 </div>
 </div>    
 </div>
-
-
-<div class="checkout" id="success" style="display:none">
-
-<div class="titulo">Pagamento realizado com sucesso</div>
-<div class="descricao">Seu pagamento foi recebido e nossa equipe estará cuidando do seu pedido.</div>
-<img src="https://www.freeiconspng.com/uploads/checkmark-png-5.png" style="width: 150px;">    
-</div>
-
-    
 <div>
 </div></div>
 </section>
