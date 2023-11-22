@@ -8,6 +8,9 @@ $subTotal = 0;
 $title = "";
 $nomeUser = explode(" ", $user["nome"]);
 
+if(!isset($nomeUser[1]))
+error("Seu nome completo está incorreto, edite no painel de usuario");
+
 if($cartCount == 0)
 error("Carrinho está vazio");
 
