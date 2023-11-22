@@ -1,13 +1,6 @@
 <?php
 if(!isset($_POST['email']) || !isset($_POST['pass']) || LOGADO)
 die();
-function error($messsage){
-    
-    $data = json_encode([
-        "result" => ["error" => true, "message" => $messsage]
-    ]);die($data);
-
-}
 
 $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
 $stmt->execute([$_POST['email']]);

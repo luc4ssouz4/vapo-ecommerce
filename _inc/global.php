@@ -46,6 +46,11 @@ if(isset($_GET['ajax'])):
     $pageNameAjax = $_GET['ajax'];
 
     sleep(0.5);
+    function error($messsage){    
+        $data = json_encode([
+            "result" => ["error" => true, "message" => $messsage]
+        ]);die($data);
+    }
 
     if(file_exists("_ajax/{$pageNameAjax}.php"))
     include("_ajax/{$pageNameAjax}.php");

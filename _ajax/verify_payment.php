@@ -1,8 +1,8 @@
 <?php
 if(!isset($_POST["id"]) || !LOGADO)
 die();
-$payment = false;
 
+$payment = false;
 $id = $_POST['id'];
 
 $ch = curl_init();

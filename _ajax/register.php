@@ -12,14 +12,6 @@ if(
 !isset($_POST['bairro']) || LOGADO
 )die();
 
-function error($messsage){
-    
-    $data = json_encode([
-        "result" => ["error" => true, "message" => $messsage]
-    ]);die($data);
-
-}
-
 if(empty($_POST['username']))
 error("Digite seu nome completo corretamente!");
 

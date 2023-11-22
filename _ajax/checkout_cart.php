@@ -1,10 +1,4 @@
 <?php
-function error($messsage){    
-  $data = json_encode([
-      "result" => ["error" => true, "message" => $messsage]
-  ]);die($data);
-}
-
 if(!LOGADO)
 error("Faça login para continuar a compra..");
 

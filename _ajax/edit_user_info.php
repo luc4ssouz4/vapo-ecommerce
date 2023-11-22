@@ -1,11 +1,6 @@
 <?php
 if(!isset($_POST['nome']) || !isset($_POST['email']) ||  !isset($_POST['cpf']) || !LOGADO)
 die();
-function error($messsage){    
-    $data = json_encode([
-        "result" => ["error" => true, "message" => $messsage]
-    ]);die($data);
-}
 
 if(empty($_POST['nome']))
 error("Digite seu nome completo corretamente!");

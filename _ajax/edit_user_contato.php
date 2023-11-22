@@ -1,11 +1,6 @@
 <?php
 if(!LOGADO)
 die();
-function error($messsage){    
-    $data = json_encode([
-        "result" => ["error" => true, "message" => $messsage]
-    ]);die($data);
-}
 
 if(empty($_POST['cep']) || empty($_POST['rua']))
 error("Digite seu endereço corretamente!");
