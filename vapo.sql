@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 20/11/2023 às 23:43
--- Versão do servidor: 10.4.27-MariaDB
--- Versão do PHP: 8.2.0
+-- Host: 127.0.0.1
+-- Tempo de geração: 23/11/2023 às 02:31
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -72,11 +72,18 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `titulo`, `imagem`, `descricao`, `preco`, `promocao`) VALUES
-(3, 'Vape124545', 'https://png.pngtree.com/png-vector/20220710/ourmid/pngtree-vape-icon-illustration-png-png-image_5837016.png', 'vapizinhoo test 123', 4.3, '0'),
-(4, 'Vape2', 'https://png.pngtree.com/png-vector/20220710/ourmid/pngtree-vape-icon-illustration-png-png-image_5837016.png', 'vapizinhoo', 0.3, '0'),
-(7, 'dsfdsf', 'https://sen.voopoo.com.cn/www-voopoo/static/dist/images/product/detail/drag2/drag4.png?v=38f13c8f3e', 'sdfsdfsdfdsfdsfdsfsdfdsfsfdf', 1.8, '1'),
-(9, 'Vape1', 'https://png.pngtree.com/png-vector/20220710/ourmid/pngtree-vape-icon-illustration-png-png-image_5837016.png', 'vapizinhoo', 0.3, '1'),
-(12, 'derfhgfhgfh', '', 'gfhgfhgfhfghfgh', 555, '0');
+(13, ' IGNITE - 1500 PUFFs', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9T00MGnxdU6VH6QIuHIJRv16FvKMzVxr3qg&usqp=CAU', 'Um dos pods mais usados em festas e bailes de sao paulo', 0.3, '0'),
+(14, 'IGNITE V50 - 5000 PUFFS', 'https://cdn.sistemawbuy.com.br/arquivos/c8bef0061e66d70da2db9d58afa9255c/produtos/64be99fdd3b0e/e5011af2727bcfe7a38eb18b60cc2f9b-64be99fe0be12.png', 'um dos pods com a melhor entrega de sabores,perfeito para o dia a dia', 0.5, '0'),
+(15, 'LIFE POD - 8000 PUFFs', 'https://i0.wp.com/pineapplerec.com/wp-content/uploads/2023/11/LIFE-POD-KIT-ATACADO-PODS.png?resize=300%2C300&ssl=1', 'o mais usado e procurado do momento', 0.7, '0'),
+(20, 'Elfbar - 4000 PUFFs', 'https://podzvape.com/wp-content/uploads/2023/06/nikbar-4000-puffs-mango-grape-ice-1.png', 'dsad', 0.3, '0'),
+(21, 'ZOMO PARTY Mesh - 800 Puff', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCAaRHNcLn21VaFYV9HLokI3XVpOtIyZvcgQ&usqp=CAU', 'perfeito para sua diversão em festas', 0.1, '0'),
+(22, 'NikBar Blue Razz - 6000 Puffs', 'https://vapelandbr.com/wp-content/uploads/2023/05/15174938715_PDNB01.png', 'perfeito para sua diversão em festas', 2, '0'),
+(23, 'Bee Bar Gummy - 5000 Puffs', 'https://vapelandbr.com/wp-content/uploads/2023/05/15139750481_Sem20Titulo-2-1.jpg', 'perfeito para sua diversão em festas', 0.25, '0'),
+(24, ' Elf Bar APPLE - 10000 Puffs ', 'https://vapelandbr.com/wp-content/uploads/2023/10/15223603495_PODSER13-575x575.png', 'perfeito para sua diversão em festas', 0.6, '0'),
+(25, ' RandM  APPLE - 7000 Puffs', 'https://vapelandbr.com/wp-content/uploads/2023/05/15169865122_RDMTR13-575x575.png', 'pod descartável essencial para suas festas e baladas', 1, '0'),
+(30, ' Vpengin Jupiter 20000 Puffs – Bubble Gum Ice', 'https://vapelandbr.com/wp-content/uploads/2023/05/15179528963_PDVJ2P01-575x575.png', '', 2, '0'),
+(31, 'Vpengin Jupiter 20000 Puffs – Cool Mint Ice', 'https://vapelandbr.com/wp-content/uploads/2023/05/15194302012_PDVJ2P08-575x575.jpg', '', 1, '0'),
+(32, 'Vpengin Jupiter 20000 Puffs – Pineapple Ice', 'https://vapelandbr.com/wp-content/uploads/2023/05/15194316332_PDVJ2P07-575x575.png', '', 0.5, '0');
 
 -- --------------------------------------------------------
 
@@ -150,7 +157,7 @@ ALTER TABLE `emails`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `users`
